@@ -12,7 +12,7 @@ function checkInput() {
     }
     // testing acc
     else if (uidInput === "s123" && pwInput === "ABCD") {
-        window.location.href = "home.html";
+        window.location.href = "Home.html";
     }
     else {
         window.alert("Invalid User ID or password.");
