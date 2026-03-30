@@ -1,40 +1,80 @@
-*{
-    margin: 0 ;
-    padding :0 ;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+nav {
+    background: rgb(136, 169, 230);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
 }
-nav{
-    background : rgb(136, 169, 230);
-    padding : 1rem;
-}
-.logo-container{
-    display :flex;
-    flex-shrink: 0;
-    gap: 10px;
 
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
 }
+
 .logo {
-    height: 10;
+    height: 50px;
+    width: auto;
 }
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+    align-items: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 10px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: rgb(26, 57, 236);
+}
+
+.Homehighlight, .Posthighlight, .prhighlight, .Profilehighlight {
+    color: rgb(26, 57, 236) !important;
+    font-weight: bold;
+}
+
 .login-btn {
     background-color: whitesmoke;
     color: rgb(35, 106, 212);
     border: 1px solid rgb(35, 106, 212);
-    padding: 6px 16px;
-    border-radius: 4px; 
+    padding: 8px 18px;
+    border-radius: 4px;
     font-size: 14px;
     font-weight: bold;
-    display:flex;
-    align-items: center;  
-    justify-content: center;
     cursor: pointer;
-
 }
-nav ul{
-    list-style-type: none;
-    margin:0 ;
-    padding:0;
-    display:flex;
+
+.login-page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.loginContainer {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 350px;
+}    display:flex;
     justify-content: space-around;
     flex-grow: 1; 
 }
