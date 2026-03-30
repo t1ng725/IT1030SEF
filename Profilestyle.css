@@ -61,5 +61,7 @@ a[href="Post.html"]:hover {
 a[href="Profile.html"]:hover {
   color: rgb(26, 57, 236);
 }
-
+.Profilehighlight {
+  color: rgb(26, 57, 236);
+}
 
