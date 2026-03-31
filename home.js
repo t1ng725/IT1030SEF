@@ -1,40 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lost and Found</title>
-    <link rel="stylesheet" href="style.css"> </head>
-<body>
-    <nav>
-        <div class="logo-container">
-            <img src="hkmu.jpg" alt="HKMU Image" class="logo">
-        </div>
-        <ul>
-            <li><a href="Home.html" class="Homehighlight">Home</a></li>
-            <li><a href="Post.html">Post</a></li>
-            <li><a href="pr.html">Personal record</a></li>
-            <li><a href="Profile.html">Profile</a></li>
-            <li><button class="login-btn" onclick="location.href='login.html'">Login</button></li>
-        </ul>
-    </nav>
-    <div class="search-section">
-    <div class="search-container">
-        <div class="input-row">
-            <input type="text" id="searchInput" placeholder="Search for items...">
-        </div>
-        
-        <div class="action-row">
-            <select id="categorySelect">
-                <option value="all">All Categories</option>
-                <option value="electronics">Electronics</option>
-                <option value="stationery">Stationery</option>
-                <option value="others">Others</option>
-            </select>
-            <button id="searchButton">Search</button>
-            <button id="resetButton">Reset</button>
-        </div>
-    </div>
-</div>
+window.onload = function() {
+    const searchButton = document.getElementById('searchButton');
+    const resetButton = document.getElementById('resetButton');
+    const searchInput = document.getElementById('searchInput');
+    const categorySelect = document.getElementById('categorySelect');
+
+    if (searchButton) {
+        searchButton.onclick = function() {
+            var query = searchInput.value;
+            if (query.trim() === "") {
+                alert("Please enter keywords to search.");
+            } else {
+                alert("Searching for: " + query);
+            }
+        };
+    }
+
+    if (resetButton) {
+        resetButton.onclick = function() {
+            if (searchInput) searchInput.value = "";
+            if (categorySelect) categorySelect.selectedIndex = 0;
+            
+            console.log("Filters reset successfully");
+        };
+    }
+};</div>
     <script src="home.js"></script>
 </body>
 </html>
