@@ -50,22 +50,7 @@ nav ul li a:hover {
     font-weight: bold;
     cursor: pointer;
 }
-.login-page-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-}
 
-.loginContainer {
-    background-color: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    width: 350px;
-}
 .search-section {
     background-color: #f9f9f9;
     padding: 40px 20px;
@@ -121,4 +106,21 @@ nav ul li a:hover {
 #resetButton {
     background-color: #eee;
     cursor: pointer;
+}
+
+body.loginPage {
+    background-image: url("building.jpg");
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainer {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
 }
