@@ -17,5 +17,24 @@
             <li><button class="login-btn" onclick="location.href='login.html'">Login</button></li>
         </ul>
     </nav>
+    <div class="search-section">
+    <div class="search-container">
+        <div class="input-row">
+            <input type="text" id="searchInput" placeholder="Search for items...">
+        </div>
+        
+        <div class="action-row">
+            <select id="categorySelect">
+                <option value="all">All Categories</option>
+                <option value="electronics">Electronics</option>
+                <option value="stationery">Stationery</option>
+                <option value="others">Others</option>
+            </select>
+            <button id="searchButton">Search</button>
+            <button id="resetButton">Reset</button>
+        </div>
+    </div>
+</div>
+    <script src="home.js"></script>
 </body>
 </html>
