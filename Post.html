@@ -10,7 +10,7 @@
 <body>
     <nav>
         <div class="logo-container">
-            <img src="hkmu.jpg" alt="HKMU Image" class="logo">
+            <img src="hkmu.png" alt="HKMU Image" class="logo">
         </div>
         <ul>
             <li><a href="Home.html">Home</a></li>
@@ -24,7 +24,29 @@
     <main style="padding: 20px; text-align: center;">
         <h1>Create a New Post</h1>
         <p>Please fill in the details of the lost or found item.</p>
-    </main>
 
+        <form id="postForm" class="post-form">
+    <label for="postType">Post Type:</label>
+    <select id="postType" required>
+        <option value="Lost">Lost Item</option>
+        <option value="Found">Found Item</option>
+     </select>
+
+     <label for="ItemName">Item Name:</label>
+     <input type="text" id="ItemName" placeholder="e.g. Airpods, Wallet" required>
+
+     <label for="Location">Location:</label>
+     <input type="text" id="Location" placeholder="e.g. JCC, IOH" required>
+
+     <label for="Date">Date:</label>
+     <input type="date" id="Date" required>
+
+     <label for="Description">Description:</label>
+     <textarea id="Description" rows="3" placeholder="Provide some details of your item" required> </textarea>
+            
+     <button type="submit">Submit Post></button>
+</form>
+    </main>
+    <script src="post.js"></script>
 </body>
 </html>
