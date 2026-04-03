@@ -14,3 +14,17 @@ document.addEventListener("DOMContentLoaded", function() {
       status: "Active"
     };
       
+    if (!post.name || !post.location) {
+      alert("Please fill in the item name and location.");
+      return;
+    }
+
+
+    const posts = JSON.parse(localStorage.getItem(lostandFoundPosts")) || [];
+    posts.unshift(post);
+    localStorage.setItem("lostAndFoundPosts", JSON.stringify(post));
+
+    alert("Your " + post.type.toLowerCase() + "post has been created.");
+    window.location.href = "Home.html";
+  });
+});
