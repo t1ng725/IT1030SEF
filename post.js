@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
       return;
     }
 
-
-    const posts = JSON.parse(localStorage.getItem(lostandFoundPosts")) || [];
+    // Save post into localStorage
+    const posts = JSON.parse(localStorage.getItem(lostAndFoundPosts")) || [];
     posts.unshift(post);
     localStorage.setItem("lostAndFoundPosts", JSON.stringify(post));
 
