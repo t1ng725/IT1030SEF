@@ -10,9 +10,19 @@ function checkInput() {
         window.alert("Please input User ID or password.");
         return;
     }
-    // testing acc
-    else if (uidInput === "s123" && pwInput === "ABCD") {
-        window.location.href = "Home.html";
+
+    var users = {
+        's111':{password:"Abcd1234"},
+        's222':{password:"Password123"}
+    }
+    if (users[uidInput] && users[uidInput].password === pwInput){
+        var currentUser = {
+            uid: uidInput
+        }
+
+    localStorage.setItem("currentUser", JSON.stringify(currentUser))
+    
+    window.location.href = "Home.html";
     }
     else {
         window.alert("Invalid User ID or password.");
