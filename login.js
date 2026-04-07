@@ -22,7 +22,7 @@ function checkInput() {
 
     localStorage.setItem("currentUser", JSON.stringify(currentUser))
     
-    window.location.href = "Home.html";
+    window.location.href = "index.html";
     }
     else {
         window.alert("Invalid User ID or password.");
