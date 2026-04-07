@@ -1,109 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lost and Found - Personal Record</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .record-form, .record-list {
-            margin: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .record-item {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-        }
-        .record-item:last-child {
-            border-bottom: none;
-        }
-        button {
-            margin-left: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Lost and Found - Personal Record</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .record-list {
+      margin: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .record-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .record-item:last-child {
+      border-bottom: none;
+    }
+    button {
+      margin-left: 10px;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <div class="logo-container">
-            <img src="hkmu.png" alt="HKMU Image" class="logo">
-        </div>
-        <ul>     
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Post.html">Post</a></li>
-            <li><a href="pr.html" class="prhighlight">Personal record</a></li>
-            <li><a href="Profile.html">Profile</a></li>
-            <li><button class="login-btn" onclick="location.href='login.html'">Login</button></li>            
-        </ul>
-    </nav>
-
-    <div class="record-form">
-        <h2>Create a Record</h2>
-        <input type="text" id="title" placeholder="Title"><br><br>
-        <textarea id="content" placeholder="Write something..." rows="4" cols="50"></textarea><br><br>
-        <select id="category">
-            <option value="All">All categories</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Stationery">Stationery</option>
-            <option value="Others">Others</option>
-        </select><br><br>
-         <button class="primary-btn" onclick="addRecord()">Publish</button>
-        </section>
+  <nav>
+    <div class="logo-container">
+      <img src="hkmu.png" alt="HKMU Image" class="logo">
     </div>
+    <ul>     
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Post.html">Post</a></li>
+      <li><a href="pr.html" class="prhighlight">Personal record</a></li>
+      <li><a href="Profile.html">Profile</a></li>
+      <li><button class="login-btn" onclick="location.href='login.html'">Login</button></li>            
+    </ul>
+  </nav>
 
-    <div class="record-list">
-        <h2>Your Records</h2>
-        <div id="records"></div>
-    </div>
+  <div class="record-list">
+    <h2>Your Records</h2>
+    <div id="records"></div>
+  </div>
 
-    <script>
-        let records = [];
-
-        function addRecord() {
-            const title = document.getElementById('title').value;
-            const content = document.getElementById('content').value;
-            const category = document.getElementById('category').value;
-
-            if (title && content) {
-                records.push({ title, content, category });
-                displayRecords();
-                document.getElementById('title').value = '';
-                document.getElementById('content').value = '';
-            } else {
-                alert("Please fill in both title and content.");
-            }
-        }
-
-        function displayRecords() {
-            const recordsDiv = document.getElementById('records');
-            recordsDiv.innerHTML = '';
-            records.forEach((record, index) => {
-                recordsDiv.innerHTML += `
-                    <div class="record-item">
-                        <strong>${record.title}</strong> (${record.category})<br>
-                        <p>${record.content}</p>
-                        <button onclick="editRecord(${index})">Edit</button>
-                        <button onclick="deleteRecord(${index})">Delete</button>
-                    </div>
-                `;
-            });
-        }
-
-        function editRecord(index) {
-            const record = records[index];
-            document.getElementById('title').value = record.title;
-            document.getElementById('content').value = record.content;
-            document.getElementById('category').value = record.category;
-            deleteRecord(index);
-        }
-
-        function deleteRecord(index) {
-            records.splice(index, 1);
-            displayRecords();
-        }
-
-    </script>
+  <script src="pr.js"></script>
 </body>
 </html>
