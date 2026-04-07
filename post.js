@@ -25,6 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
     localStorage.setItem("lostAndFoundPosts", JSON.stringify(post));
 
     alert("Your " + post.type.toLowerCase() + "post has been created.");
-    window.location.href = "Home.html";
+    window.location.href = "index.html";
   });
 });
