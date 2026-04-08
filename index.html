@@ -20,22 +20,24 @@
         </ul>
     </nav>
     <div class="search-section">
-    <div class="search-container">
+        <div class="search-container">
         <div class="input-row">
             <input type="text" id="searchInput" placeholder="Search for items...">
         </div>
         
         <div class="action-row">
             <select id="categorySelect">
-                <option value="all">All Categories</option>
-                <option value="electronics">Electronics</option>
-                <option value="stationery">Stationery</option>
-                <option value="others">Others</option>
+                <option value="all">All Types</option>
+                <option value="Lost">Lost</option>
+                <option value="Found">Found</option>
             </select>
             <button id="searchButton">Search</button>
             <button id="resetButton">Reset</button>
         </div>
     </div>
+</div>
+<div class="posts-section">
+        <div id="postsContainer" class="posts-container"></div>
 </div>
     <script src="home.js"></script>
 </body>
