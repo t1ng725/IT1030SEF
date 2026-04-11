@@ -35,7 +35,7 @@ function initRegister(event){
 
 }
 
-function setupRegisterForm(){
+function setupRegisterPage(){
     const registerForm = document.getElementById('registerForm');
     
     if (registerForm) {
@@ -43,4 +43,4 @@ function setupRegisterForm(){
     }
 }
 
-document.addEventListener('DOMContentLoaded', setupRegisterForm);
+document.addEventListener('DOMContentLoaded', setupRegisterPage);
