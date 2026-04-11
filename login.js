@@ -1,33 +1,42 @@
-function initLogin() {
-    var buttonClicked = document.getElementById("loginButton");
-    buttonClicked.onclick = checkInput;
+function initDefaultUsers(){
+    if(localStorage.getItem("users")){
+        return;
+    }
+
+    const defaultUsers = {
+            "s111" : {password: "Abcd1234"},
+            's222' : {password: "Password123" }
+        };
+    localStorage.setItem("users", JSON.stringify(defaultUsers));
+
 }
 
-function checkInput() {
-    var uidInput = document.loginForm.uid.value;
-    var pwInput = document.loginForm.pw.value;
-    if (uidInput === "" || pwInput === "") {
+function initLogin(event){
+    event.preventDefault();
+
+    const uid = document.getElementById('loginUid').value.trim();
+    const pw = document.getElementById('loginPw').value;
+
+    if (uid === "" || pw === ""){
         window.alert("Please input User ID or password.");
         return;
     }
 
-    var users = {
-        's111':{password:"Abcd1234"},
-        's222':{password:"Password123"}
-    }
-    if (users[uidInput] && users[uidInput].password === pwInput){
-        var currentUser = {
-            uid: uidInput
-        }
-
-    localStorage.setItem("currentUser", JSON.stringify(currentUser))
+    const usersStr = localStorage.getItem('users');
+    let users = {};
     
-    window.location.href = "index.html";
+    if (usersStr) {
+        users = JSON.parse(usersStr);
+    } 
+    
+    if (users[uid] && users[uid].password === pw){
+        localStorage.setItem("currentUser", JSON.stringify({uid : uid}));
+        window.location.href = "index.html";
     }
-    else {
+    else{
         window.alert("Invalid User ID or password.");
-        return;
     }
 }
 
-window.onload = initLogin
+document.addEventListener('DOMContentLoaded', initDefaultUsers);
+document.getElementById('loginForm').addEventListener('submit', initLogin);
