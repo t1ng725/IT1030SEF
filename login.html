@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Lost and Found</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class = "loginPage">
     <div class = "loginContainer">
         <h1>HKMU Lost and Found System</h1>
         <br>
-        <form name = "loginForm">
+        <form id = "loginForm">
             <label>User ID: </label>
             <input type = "text" id = 'loginUid' required>
             <br><br>
             <label>Password: </label>
-            <input type = "password" name = "loginPw" required>
+            <input type = "password" id = "loginPw" required>
             <br><br>
             <button type = "submit" id = "loginButton">Login</button>
         </form>
@@ -25,6 +25,5 @@
         </p>
     </div>
     <script src="login.js"></script>
-    
 </body>
 </html>
