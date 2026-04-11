@@ -24,7 +24,7 @@ function initLogin(event){
 
     const usersStr = localStorage.getItem('users');
     let users = {};
-    
+
     if (usersStr) {
         users = JSON.parse(usersStr);
     } 
@@ -38,5 +38,13 @@ function initLogin(event){
     }
 }
 
-document.addEventListener('DOMContentLoaded', initDefaultUsers);
-document.getElementById('loginForm').addEventListener('submit', initLogin);
+function setupLoginPage() {
+    initDefaultUsers();
+
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', initLogin);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', setupLoginPage);
