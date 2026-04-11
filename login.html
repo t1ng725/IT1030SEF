@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,15 +12,19 @@
         <br>
         <form name = "loginForm">
             <label>User ID: </label>
-            <input type = "text" name = 'uid' required>
+            <input type = "text" id = 'loginUid' required>
             <br><br>
-            <label>Password</label>
-            <input type = "password" name = "pw" required>
+            <label>Password: </label>
+            <input type = "password" name = "loginPw" required>
             <br><br>
-            <button type = "button" id = "loginButton">Login</button>
+            <button type = "submit" id = "loginButton">Login</button>
         </form>
+        <p>
+            Register here: 
+            <a href="register.html">Register</a>
+        </p>
     </div>
-
     <script src="login.js"></script>
+    
 </body>
 </html>
