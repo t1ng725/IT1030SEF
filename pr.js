@@ -35,7 +35,7 @@ function displayRecords(){
 
 function editRecord(postId){
   postId = Number(postId);
-  
+
   let posts = (JSON.parse(localStorage.getItem("lostAndFoundPosts")) || []);
   const index = posts.findIndex(function(post){
     return post.id === postId;
@@ -48,6 +48,7 @@ function editRecord(postId){
   const newLocation = window.prompt("Edit location:", post.location);
   const newDate = window.prompt("Edit date (YYYY-MM-DD):", post.date);
   const newDescription = window.prompt("Edit description:", post.description);
+  const newContact = window.prompt("Edit contact:", post.contact);
 
   if(newName && newLocation && newDate && newDescription){
     posts[index] = {
@@ -55,7 +56,8 @@ function editRecord(postId){
       name: newName,
       location: newLocation,
       date: newDate,
-      description: newDescription
+      description: newDescription,
+      contact: newContact
     };
     localStorage.setItem("lostAndFoundPosts", JSON.stringify(posts));
     displayRecords();
