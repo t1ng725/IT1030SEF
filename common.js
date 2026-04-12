@@ -1,5 +1,5 @@
 function directToLogin(){
-    window.location.href = "index.html";
+    window.location.href = "login.html";
 }
 function logout(){
     localStorage.removeItem("currentUser");
