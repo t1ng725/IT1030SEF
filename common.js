@@ -1,10 +1,19 @@
 function directToLogin(){
     window.location.href = "login.html";
 }
+
 function logout(){
     localStorage.removeItem("currentUser");
     window.alert("You have been logged out.");
     window.location.href = "index.html";
+}
+
+function checklogin(){
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (!currentUser) {
+        alert("Please log in first.");
+        directToLogin();
+    }
 }
 
 function updateNavigation(){
