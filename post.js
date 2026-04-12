@@ -56,6 +56,7 @@ function initPost(event){
 
 function setupPostPage(){
   checkLogin();
+  updateNavigation();
 
   const postForm = document.getElementById("postForm");
   if(postForm){
