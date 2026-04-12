@@ -9,20 +9,16 @@ function loadUserInfo(){
     }
 }
 
-function Logout(){
-    var logoutButton = document.getElementById("logoutButton")
-    if(logoutButton){
-        logoutButton.onclick = function(){
-            localStorage.removeItem("currentUser")
-            window.alert("You have been logged out.")
-            window.location.href = "login.html"
-        }
-    }
-}
-
-window.onload = function(){
+function setupProfilePage(){
     checkLogin();
     updateNavigation();
     loadUserInfo();
-    Logout()
+
+    const logoutBtn = document.getElementById("logoutButton");
+    if(logoutBtn){
+        logoutBtn.addEventListener("click", logout);
+    }
+
 }
+
+document.addEventListener("DOMContentLoaded", setupProfilePage);
