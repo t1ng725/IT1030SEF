@@ -8,8 +8,9 @@ function logout(){
     window.location.href = "index.html";
 }
 
-function checklogin(){
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+function checkLogin(){
+    const currentUserStr = localStorage.getItem("currentUser");
+    const currentUser = (currentUserStr ? JSON.parse(currentUserStr) : null);
     if (!currentUser) {
         alert("Please log in first.");
         directToLogin();
