@@ -79,10 +79,12 @@ function setupHomePage(){
     updateNavigation();
 
     const searchInput = document.getElementById("searchInput");
+    const typeSelect = document.getElementById("typeSelect");
     const searchButton = document.getElementById("searchButton");
     const resetButton = document.getElementById("resetButton");
 
     searchInput.addEventListener("input", filterAndDisplay);
+    typeSelect.addEventListener("change", filterAndDisplay);
     searchButton.addEventListener("click", filterAndDisplay);
     resetButton.addEventListener("click", resetFilters);
 
