@@ -1,46 +1,55 @@
-document.addEventListener("DOMContentLoaded", function() {
-  displayRecords();
-});
-
-function displayRecords() {
+function displayRecords(){
   const recordsDiv = document.getElementById("records");
-  let posts = JSON.parse(localStorage.getItem("lostAndFoundPosts")) || [];
+  if (!recordsDiv) return;
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (!currentUser) return;
+
+  let posts = (JSON.parse(localStorage.getItem("lostAndFoundPosts")) || []);
+  const userPosts = posts.filter(function(post){
+    return post.userId === currentUser.uid;
+  });
 
   recordsDiv.innerHTML = "";
 
-  if (posts.length === 0) {
+  if(userPosts.length === 0){
     recordsDiv.innerHTML = "<p>No posts yet.</p>";
     return;
   }
 
-  posts.forEach((post, index) => {
+  userPosts.forEach(function(post){
     const item = document.createElement("div");
-    item.classList.add("record-item");
-
+    item.className = "record-item";
     item.innerHTML = `
-      <strong>${post.type}: ${post.name}</strong><br>
-      <p><b>Location:</b> ${post.location}</p>
-      <p><b>Date:</b> ${post.date}</p>
-      <p><b>Description:</b> ${post.description}</p>
-      <button onclick="editRecord(${index})">Edit</button>
-      <button onclick="deleteRecord(${index})">Delete</button>
+      <strong>${post.type}:</strong> ${post.name}<br>
+      <b>Location:</b> ${post.location}<br>
+      <b>Date:</b> ${post.date}<br>
+      <b>Description:</b> ${post.description}<br>
+      ${post.contact ? `<b>Contact:</b> ${post.contact}<br>` : ''}
+      <button onclick="editRecord('${post.id}')">Edit</button>
+      <button onclick="deleteRecord('${post.id}')">Delete</button>
     `;
-
-    recordsDiv.appendChild(item);
+    recordsDiv.append(item);
   });
 }
 
-function editRecord(index) {
-  let posts = JSON.parse(localStorage.getItem("lostAndFoundPosts")) || [];
+function editRecord(postId){
+  postId = Number(postId);
+  
+  let posts = (JSON.parse(localStorage.getItem("lostAndFoundPosts")) || []);
+  const index = posts.findIndex(function(post){
+    return post.id === postId;
+  });
+  if (index === -1) return;
+
   const post = posts[index];
 
-  
-  const newName = prompt("Edit item name:", post.name);
-  const newLocation = prompt("Edit location:", post.location);
-  const newDate = prompt("Edit date:", post.date);
-  const newDescription = prompt("Edit description:", post.description);
+  const newName = window.prompt("Edit item name:", post.name);
+  const newLocation = window.prompt("Edit location:", post.location);
+  const newDate = window.prompt("Edit date (YYYY-MM-DD):", post.date);
+  const newDescription = window.prompt("Edit description:", post.description);
 
-  if (newName && newLocation && newDate && newDescription) {
+  if(newName && newLocation && newDate && newDescription){
     posts[index] = {
       ...post,
       name: newName,
@@ -48,17 +57,33 @@ function editRecord(index) {
       date: newDate,
       description: newDescription
     };
-
     localStorage.setItem("lostAndFoundPosts", JSON.stringify(posts));
     displayRecords();
-  } else {
-    alert("Edit cancelled or incomplete.");
+    window.alert("Record updated.");
   }
 }
 
-function deleteRecord(index) {
-  let posts = JSON.parse(localStorage.getItem("lostAndFoundPosts")) || [];
+function deleteRecord(postId){
+  postId = Number(postId);
+
+  if (!confirm("Delete this record permanently?")) return;
+
+  let posts = (JSON.parse(localStorage.getItem("lostAndFoundPosts")) || []);
+  const index = posts.findIndex(function(post){
+    return post.id === postId;
+  });
+  if (index === -1) return;
+
   posts.splice(index, 1);
   localStorage.setItem("lostAndFoundPosts", JSON.stringify(posts));
   displayRecords();
+  window.alert("Record deleted.");
 }
+
+function setupPRPage(){
+  checkLogin();
+  updateNavigation();
+  displayRecords();
+}
+
+document.addEventListener("DOMContentLoaded", setupPRPage);
