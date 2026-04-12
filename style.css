@@ -31,7 +31,6 @@ nav ul li a {
     padding: 15px 10px;
     font-size: 16px;
     font-family: Arial, sans-serif;
-    transition: color 0.3s;
 }
 nav ul li a:hover {
     color: rgb(26, 57, 236);
@@ -129,11 +128,6 @@ nav ul li a:hover {
     transition: all 0.3s ease;
 }
 
-.post-card:hover {
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    transform: translateY(-3px);
-}
-
 .post-card img {
     width: 100%;
     height: 180px;
@@ -169,8 +163,8 @@ nav ul li a:hover {
 }
 
 .post-card .post-type.found {
-    background-color: #ecfdf5;
-    color: #10b981;
+    background-color: #e8f5e9;
+    color: rgb(26, 57, 236);
 }
 
 .post-card h3 {
@@ -200,7 +194,7 @@ nav ul li a:hover {
     font-size: 0.9em;
     color: #0066cc;
 }
-/* login css */
+
 body.loginPage {
     background-image: url("building.jpg");
     background-size: cover;
@@ -217,9 +211,64 @@ body.loginPage {
     border-radius: 15px;
     text-align: center;
 }
-/* login css */
 
-/* profile css */
+.loginContainer p {
+    margin-top: 25px;
+    font-size: 16px;
+}
+
+.loginContainer p a {
+    color: rgb(26, 57, 236);
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background-color: #e8eef8;
+    display: inline-block;
+}
+
+#loginButton {
+    font-size: 16px;
+}
+
+body.registerPage {
+    background-image: url("building.jpg");
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerContainer {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.registerContainer p {
+    margin-top: 25px;
+    font-size: 16px;
+}
+
+.registerContainer p a {
+    color: rgb(26, 57, 236);
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background-color: #e8eef8;
+    display: inline-block;
+}
+
+#registerButton {
+    font-size: 16px;
+}
+
 .profileContainer {
     width: 600px;
     margin: 100px auto;
@@ -246,38 +295,70 @@ body.loginPage {
 .logoutb {
     border: 2px solid #999;
     font-size: 22px;
-    cursor: pointer
+    cursor: pointer;
     padding: 12px 24px
 }
-/* profile css */
 
-/* pr css */
 .record-list {
-  margin: 20px;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.record-item {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
-}
-.record-item:last-child {
-  border-bottom: none;
-}
-button {
-  margin-left: 10px;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
 .record-list h2 {
-    border-bottom: 1px solid #ddd;
+    color: rgb(26, 57, 236);
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
     padding-bottom: 10px;
-    margin-bottom: 10px;
-    color: rgb(26, 57, 236)
+    border-bottom: 3px solid black;
 }
-/* pr css */
 
-/* post css */
+.record-item {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.record-item strong:first-child {
+    color: rgb(26, 57, 236);
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.record-item b {
+    color: #555;
+}
+
+.record-item button {
+    background-color: rgb(26, 57, 236);
+    color: white;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-right: 10px;
+    font-size: 13px;
+}
+
+.record-item button:last-child {
+    background-color: #dc3545;
+}
+
+.record-list p {
+    text-align: center;
+    color: #888;
+    font-size: 18px;
+    padding: 40px;
+    background: #f9f9f9;
+    border-radius: 12px;
+}
+
 main {
     max-width: 700px;
     margin: 40px auto;
@@ -291,6 +372,10 @@ main h1 {
     color: rgb(26, 57, 236);
     font-size: 28px;
     margin-bottom: 10px;
+    text-align: center;
+}
+
+main p {
     text-align: center;
 }
 
@@ -325,8 +410,3 @@ main h1 {
     cursor: pointer;
     margin-top: 10px;
 }
-
-.post-form button[type="submit"]:hover {
-    background-color: rgb(26, 57, 236);
-}
-/* post css */
