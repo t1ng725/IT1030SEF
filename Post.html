@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Post Item - Lost and Found</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,7 +16,7 @@
             <li><a href="Post.html" class="Posthighlight">Post</a></li>
             <li><a href="pr.html">Personal record</a></li>
             <li><a href="Profile.html">Profile</a></li>
-            <li><button class="login-btn" onclick="location.href='login.html'">Login</button></li>
+            <li><button class="login-btn">Login</button></li>
         </ul>
     </nav>
 
@@ -27,27 +26,34 @@
         <br>
         
         <form id="postForm" class="post-form">
-    <label for="postType">Post Type:</label>
-    <select id="postType" required>
-        <option value="Lost">Lost Item</option>
-        <option value="Found">Found Item</option>
-     </select>
+            <label for="postType">Post Type:</label>
+            <select id="postType" required>
+                <option value="Lost">Lost Item</option>
+                <option value="Found">Found Item</option>
+            </select>
 
-     <label for="ItemName">Item Name:</label>
-     <input type="text" id="ItemName" placeholder="e.g. Airpods, Wallet" required>
+            <label for="ItemName">Item Name:</label>
+            <input type="text" id="ItemName" placeholder="e.g. Airpods, Wallet" required>
 
-     <label for="Location">Location:</label>
-     <input type="text" id="Location" placeholder="e.g. JCC, IOH" required>
+            <label for="Location">Location:</label>
+            <input type="text" id="Location" placeholder="e.g. JCC, IOH" required>
 
-     <label for="Date">Date:</label>
-     <input type="date" id="Date" required>
+            <label for="Date">Date:</label>
+            <input type="date" id="Date" required>
 
-     <label for="Description">Description:</label>
-     <textarea id="Description" rows="3" placeholder="Provide some details of your item" required> </textarea>
+            <label for="Description">Description:</label>
+            <textarea id="Description" rows="4" placeholder="Provide some details of your item" required> </textarea>
+
+            <label for="itemImage">Item Image (optional):</label>
+            <input type="file" id="itemImage" accept="image/*">
+
+            <label for="contact">Contact Information:</label>
+            <input type="text" id="contact" placeholder="e.g. Phone, email">
             
-     <button type="submit">Submit Post</button>
-</form>
+            <button type="submit">Submit Post</button>
+        </form>
     </main>
+    <script src="common.js"></script>
     <script src="post.js"></script>
 </body>
 </html>
