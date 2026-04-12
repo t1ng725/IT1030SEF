@@ -21,6 +21,8 @@ function Logout(){
 }
 
 window.onload = function(){
+    checkLogin();
+    updateNavigation();
     loadUserInfo();
     Logout()
 }
